@@ -19,8 +19,6 @@ gunicorn server:app
 python server.py
 ```
 
-
-
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
 
