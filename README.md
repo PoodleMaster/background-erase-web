@@ -5,7 +5,8 @@
 # ■Requirements
 - python 3.8+
 - Linux is required when using gunicorn. (Currently gunicorn does not support windows.)
-``` :python
+```
+git clone https://github.com/PoodleMaster/background-erase-web
 pip install -r require.txt
 ```
 
