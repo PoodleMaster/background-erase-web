@@ -4,6 +4,7 @@
 
 # ■Requirements
 - python 3.8+
+- Linux is required when using gunicorn. (Currently gunicorn does not support windows.)
 ``` :python
 pip install -r require.txt
 ```
