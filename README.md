@@ -9,10 +9,13 @@ pip install -r require.txt
 ```
 
 # ■Server startup
-- with gunicorn
-``` :python
+## with gunicorn
+- Execution command
+```
 gunicorn server:app
 ```
+
+- Execution example
 ```
 [2021-07-16 14:00:02 +0900] [845] [INFO] Starting gunicorn 20.1.0
 [2021-07-16 14:00:02 +0900] [845] [INFO] Listening at: http://127.0.0.1:8000 (845)
@@ -20,12 +23,14 @@ gunicorn server:app
 [2021-07-16 14:00:02 +0900] [847] [INFO] Booting worker with pid: 847
 ```
 
-- without gunicorn
-``` :python
+## without gunicorn
+- Execution command
+```
 python server.py
 ```
 
-```
+- Execution example
+``` 
  * Serving Flask app 'server' (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
