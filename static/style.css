@@ -1,0 +1,51 @@
+.title {
+  vertical-align: middle;
+}
+
+#previewtImg {
+  width: 300px;
+  margin: 10px;
+  border: solid 0px silver;
+}
+
+#ResultImg {
+  width: 300px;
+  margin: 10px;
+  border: solid 0px silver;
+}
+
+#WaitImg {
+  width: 100px;
+  margin: 10px;
+  border: solid 0px silver;
+}
+
+.file_button {
+  display: inline-block;
+  position: relative;
+  padding: 1em 2.2em;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #2772DB;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -o-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.file_button:hover {
+  background-color: #2062bf;
+}
+
+.file_input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
