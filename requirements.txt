@@ -1,4 +1,5 @@
 Flask==2.0.1
 rembg==1.0.27
-torch==1.7.1+cpu torchvision==0.8.2+cpu -f https://download.pytorch.org/whl/torch_stable.html
+http://download.pytorch.org/whl/cpu/torch-1.7.1-cp36-cp36m-linux_x86_64.whl
+torchvision==0.8.2
 gunicorn==20.1.0
