@@ -7,7 +7,7 @@
 - Linux is required when using gunicorn. (Currently gunicorn does not support windows.)
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
-pip install -r require.txt
+pip install -r requirements.txt
 ```
 
 # ■Server startup
