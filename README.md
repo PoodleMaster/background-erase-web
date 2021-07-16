@@ -23,7 +23,7 @@ gunicorn server:app
 [2021-07-16 14:00:02 +0900] [847] [INFO] Booting worker with pid: 847
 ```
 
-## without gunicorn
+## without gunicorn (Start the server with Flask functionality)
 - Execution command
 ```
 python server.py
