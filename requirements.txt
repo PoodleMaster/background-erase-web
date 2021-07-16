@@ -1,5 +1,4 @@
 Flask==2.0.1
 rembg==1.0.27
-torch==1.7.1
-torchvision==0.8.2
+torch==1.7.1+cpu torchvision==0.8.2+cpu -f https://download.pytorch.org/whl/torch_stable.html
 gunicorn==20.1.0
