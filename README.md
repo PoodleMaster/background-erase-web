@@ -9,15 +9,17 @@ pip install -r require.txt
 ```
 
 # ■Server startup
-- local server
+- with gunicorn
+``` :python
+gunicorn server:app
+```
+
+- without gunicorn
 ``` :python
 python server.py
 ```
 
-- local server with gunicorn
-``` :python
-gunicorn server:app
-```
+
 
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
