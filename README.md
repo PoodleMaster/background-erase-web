@@ -13,11 +13,26 @@ pip install -r require.txt
 ``` :python
 gunicorn server:app
 ```
+```
+[2021-07-16 14:00:02 +0900] [845] [INFO] Starting gunicorn 20.1.0
+[2021-07-16 14:00:02 +0900] [845] [INFO] Listening at: http://127.0.0.1:8000 (845)
+[2021-07-16 14:00:02 +0900] [845] [INFO] Using worker: sync
+[2021-07-16 14:00:02 +0900] [847] [INFO] Booting worker with pid: 847
+```
 
 - without gunicorn
 ``` :python
 python server.py
 ```
+
+```
+ * Serving Flask app 'server' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:9000/ (Press CTRL+C to quit)
+ ```
 
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
