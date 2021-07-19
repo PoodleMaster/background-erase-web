@@ -8,12 +8,6 @@
 
 # ■Install
 ```
-conda create -n rembg38 python=3.8
-conda activate rembg38
-conda install gcc_linux-64 gxx_linux-64
-```
-
-```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
 ```
@@ -43,6 +37,9 @@ http://localhost:5000/
 
 Start the server using the HTTP server (gunicorn) command.
 ```
+conda create -n rembg38 python=3.8
+conda activate rembg38
+conda install gcc_linux-64 gxx_linux-64
 pip install -r requirements.txt
 gunicorn --bind=localhost:8000 server:app
 ```
@@ -61,6 +58,9 @@ http://localhost:8000/
 
 Even if you don't have an HTTP server (gunicorn), you can run it with Flask's simple HTTP server function.
 ```
+conda create -n rembg38 python=3.8
+conda activate rembg38
+conda install gcc_linux-64 gxx_linux-64
 pip install -r requirements.txt
 python server.py
 ```
