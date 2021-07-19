@@ -14,8 +14,8 @@ cd background-erase-web
 ## with Docker
 - Execution command
 ```
-sudo docker build -t minicon3:1.5 .
-sudo docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
+docker build -t minicon3:1.5 .
+docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
 http://localhost:5000/
 
