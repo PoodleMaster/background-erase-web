@@ -7,7 +7,6 @@
 - Linux is required when using gunicorn. (Currently gunicorn does not support windows.)
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
-pip install -r requirements.txt
 cd background-erase-web
 ```
 
@@ -18,10 +17,12 @@ cd background-erase-web
 sudo docker build -t minicon3:1.5 .
 sudo docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
+http://localhost:5000/
 
 ## with Gunicorn
 - Execution command
 ```
+pip install -r requirements.txt
 gunicorn server:app
 ```
 
@@ -32,10 +33,12 @@ gunicorn server:app
 [2021-07-16 14:00:02 +0900] [845] [INFO] Using worker: sync
 [2021-07-16 14:00:02 +0900] [847] [INFO] Booting worker with pid: 847
 ```
+http://localhost:8000/
 
 ## without Gunicorn (Start the server with Flask functionality)
 - Execution command
 ```
+pip install -r requirements.txt
 python server.py
 ```
 
@@ -48,6 +51,7 @@ python server.py
  * Debug mode: off
  * Running on http://127.0.0.1:9000/ (Press CTRL+C to quit)
  ```
+http://localhost:9000/
 
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
