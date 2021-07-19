@@ -35,7 +35,7 @@ http://localhost:5000/
 ## with Gunicorn
 - Execution command
 
-Start using the HTTP server (gunicorn) command.
+Start the server using the HTTP server (gunicorn) command.
 ```
 pip install -r requirements.txt
 gunicorn --bind=localhost:8000 server:app
