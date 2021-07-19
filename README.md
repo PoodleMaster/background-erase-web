@@ -13,14 +13,14 @@ cd background-erase-web
 ```
 
 # ■Server startup
-## with Docker
+## with Docker-compose
 - Execution command
 ```
 docker-compose up
 ```
 http://localhost:5000/
 
-## with Docker-compose
+## with Docker
 - Execution command
 ```
 docker build -t minicon3:1.5 .
