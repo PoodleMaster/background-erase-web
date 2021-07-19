@@ -13,7 +13,7 @@ cd background-erase-web
 ```
 
 # ■Server startup
-## with Docker-compose
+## (1) with Docker-compose
 - Execution command
 
 You can execute it until startup with one command.
@@ -22,7 +22,7 @@ docker-compose up
 ```
 http://localhost:5000/
 
-## with Docker
+## (2) with Docker
 - Execution command
 
 After creating the docker image, create and run the container.
@@ -32,7 +32,7 @@ docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
 http://localhost:5000/
 
-## with Gunicorn
+## (3) with Gunicorn
 - Execution command
 
 Start the server using the HTTP server (gunicorn) command.
@@ -53,7 +53,7 @@ gunicorn --bind=localhost:8000 server:app
 ```
 http://localhost:8000/
 
-## without Gunicorn (Start the server with Flask functionality)
+## (4) without Gunicorn (Start the server with Flask functionality)
 - Execution command
 
 Even if you don't have an HTTP server (gunicorn), you can run it with Flask's simple HTTP server function.
