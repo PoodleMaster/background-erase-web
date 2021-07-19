@@ -8,9 +8,17 @@
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
 pip install -r requirements.txt
+cd background-erase-web
 ```
 
 # ■Server startup
+## with Docker
+- Execution command
+```
+sudo docker build -t minicon3:1.5 .
+sudo docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
+```
+
 ## with Gunicorn
 - Execution command
 ```
