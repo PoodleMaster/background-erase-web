@@ -17,7 +17,7 @@ RUN pip install torchvision==0.8.2+cpu --find-links https://download.pytorch.org
 RUN pip install rembg==1.0.27
 RUN pip install gunicorn==20.1.0
 
-COPY ./ ./bg
-WORKDIR bg
+COPY ./ /bg
+WORKDIR /bg
 EXPOSE 5000
 CMD ["gunicorn", "--bind=0.0.0.0:5000", "server:app"]
