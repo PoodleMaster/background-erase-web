@@ -16,6 +16,13 @@ cd background-erase-web
 ## with Docker
 - Execution command
 ```
+docker-compose up
+```
+http://localhost:5000/
+
+## with Docker-compose
+- Execution command
+```
 docker build -t minicon3:1.5 .
 docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
