@@ -23,7 +23,7 @@ http://localhost:5000/
 - Execution command
 ```
 pip install -r requirements.txt
-gunicorn server:app
+gunicorn --bind=0.0.0.0:8000 server:app
 ```
 
 - Execution example
