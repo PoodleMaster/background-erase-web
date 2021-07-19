@@ -5,6 +5,8 @@
 # ■Requirements
 - python 3.8+
 - Linux is required when using gunicorn. (Currently gunicorn does not support windows.)
+
+# ■Install
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
