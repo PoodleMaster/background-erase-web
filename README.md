@@ -8,6 +8,12 @@
 
 # ■Install
 ```
+conda create -n rembg38 python=3.8
+conda activate rembg38
+conda install gcc_linux-64 gxx_linux-64
+```
+
+```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
 ```
