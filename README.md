@@ -43,7 +43,7 @@ docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
 http://localhost:5000/
 
-## (B) Using Gunicorn (+Flask)
+## (B) Using Gunicorn
 - Execution command
 
 Start the server using the HTTP server (gunicorn) command.
