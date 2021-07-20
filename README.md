@@ -13,7 +13,15 @@ cd background-erase-web
 ```
 
 # ■Server startup
-## (1) with Docker-compose
+Please execute "get_u2net.py" in advance to get "u2net.pth".
+Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
+However, it is very large at 168MB, so it is recommended to download it in advance.
+```
+pip install GitPython
+python get_u2net.py
+```
+
+## (1) Using Docker-compose (Gunicorn + Flask)
 - Execution command
 
 You can execute it until startup with one command.
@@ -22,7 +30,7 @@ docker-compose up
 ```
 http://localhost:5000/
 
-## (2) with Docker
+## (2) Using Docker (Gunicorn + Flask)
 - Execution command
 
 After creating the docker image, create and run the container.
@@ -32,7 +40,7 @@ docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
 http://localhost:5000/
 
-## (3) with Gunicorn
+## (3) Using Gunicorn (+Flask)
 - Execution command
 
 Start the server using the HTTP server (gunicorn) command.
@@ -53,7 +61,7 @@ gunicorn --bind=localhost:8000 server:app
 ```
 http://localhost:8000/
 
-## (4) without Gunicorn (Start the server with Flask functionality)
+## (4) Using Flask
 - Execution command
 
 Even if you don't have an HTTP server (gunicorn), you can run it with Flask's simple HTTP server function.
