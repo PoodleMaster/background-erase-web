@@ -44,6 +44,7 @@ docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 http://localhost:5000/
 
 ## (B) Without Docker
+Install the python library.
 ```
 conda create -n rembg38 python=3.8
 conda activate rembg38
