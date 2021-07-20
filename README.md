@@ -31,7 +31,48 @@ You can execute it until startup with one command.
 ```
 docker-compose up
 ```
-http://localhost:5000/
+
+- Execution example
+```
+Building web
+[+] Building 1.9s (21/21) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 38B                                                                                0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           1.7s
+ => [ 1/16] FROM docker.io/continuumio/miniconda3@sha256:1d17ca42494bf4d99030845e05376eb2d246b1ed5ee61afbbf2d1f8f  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 368B                                                                                  0.0s
+ => CACHED [ 2/16] RUN apt-get update                                                                              0.0s
+ => CACHED [ 3/16] RUN apt-get install -y build-essential                                                          0.0s
+ => CACHED [ 4/16] RUN conda update pip                                                                            0.0s
+ => CACHED [ 5/16] RUN conda install gcc_linux-64 gxx_linux-64                                                     0.0s
+ => CACHED [ 6/16] RUN pip install pymatting                                                                       0.0s
+ => CACHED [ 7/16] RUN pip install Flask==2.0.1                                                                    0.0s
+ => CACHED [ 8/16] RUN pip install torch==1.7.1+cpu --find-links https://download.pytorch.org/whl/torch_stable.ht  0.0s
+ => CACHED [ 9/16] RUN pip install torchvision==0.8.2+cpu --find-links https://download.pytorch.org/whl/torch_sta  0.0s
+ => CACHED [10/16] RUN pip install rembg==1.0.27                                                                   0.0s
+ => CACHED [11/16] RUN pip install gunicorn==20.1.0                                                                0.0s
+ => CACHED [12/16] COPY u2net/u2net.pth /root/.u2net/                                                              0.0s
+ => CACHED [13/16] WORKDIR /bg                                                                                     0.0s
+ => CACHED [14/16] COPY server.py .                                                                                0.0s
+ => CACHED [15/16] COPY static static/                                                                             0.0s
+ => CACHED [16/16] COPY templates templates/                                                                       0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:9a729e2d288a318a162bdba490bb3a9b8e1b117285ea3f41b6aaf7c89e5db132                       0.0s
+ => => naming to docker.io/library/background-erase-web_web                                                        0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Starting background-erase-web_web_1 ... done
+Attaching to background-erase-web_web_1
+web_1  | [2021-07-20 02:27:49 +0000] [1] [INFO] Starting gunicorn 20.1.0
+web_1  | [2021-07-20 02:27:49 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+web_1  | [2021-07-20 02:27:49 +0000] [1] [INFO] Using worker: sync
+web_1  | [2021-07-20 02:27:49 +0000] [9] [INFO] Booting worker with pid: 9
+```
+👉http://localhost:5000/
 
 ### (A-2) Using Docker
 - Execution command
@@ -41,7 +82,20 @@ After creating the docker image, create and run the container.
 docker build -t minicon3:1.5 .
 docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
-http://localhost:5000/
+
+- Execution example
+```
+[2021-07-20 02:17:41 +0000] [1] [INFO] Starting gunicorn 20.1.0
+[2021-07-20 02:17:41 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+[2021-07-20 02:17:41 +0000] [1] [INFO] Using worker: sync
+[2021-07-20 02:17:41 +0000] [8] [INFO] Booting worker with pid: 8
+Failed to import ahead-of-time-compiled modules.
+This is expected on first import.
+Compiling modules and trying again.
+This might take a minute.
+Successfully imported ahead-of-time-compiled modules.
+```
+👉http://localhost:5000/
 
 ## (B) Without Docker
 Install the python library.
@@ -67,7 +121,7 @@ gunicorn --bind=localhost:8000 server:app
 [2021-07-16 14:00:02 +0900] [845] [INFO] Using worker: sync
 [2021-07-16 14:00:02 +0900] [847] [INFO] Booting worker with pid: 847
 ```
-http://localhost:8000/
+👉http://localhost:8000/
 
 ## (B-2) Using Flask
 - Execution command
@@ -86,7 +140,7 @@ python server.py
  * Debug mode: off
  * Running on http://127.0.0.1:9000/ (Press CTRL+C to quit)
  ```
-http://localhost:9000/
+👉http://localhost:9000/
 
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
