@@ -3,6 +3,8 @@ import shutil
 import stat
 import subprocess
 
+
+# python Liblary install
 cmd = 'pip install GitPython'
 subprocess.call(cmd.split())
 import git
@@ -11,7 +13,7 @@ import git
 toolpath = 'tool'
 u2netpath = 'u2net'
 
-# remove_readonly
+# remove_readonly Function
 def remove_readonly(func, path, excinfo):
     os.chmod(path, stat.S_IWRITE)
     func(path)
@@ -27,9 +29,10 @@ if os.path.exists(u2netpath):
 print('os.name = ', os.name)
 if os.name == 'nt':
     cmd = 'dir .'
+    subprocess.call(cmd.split(), shell=True)
 else:
     cmd = 'ls .'
-subprocess.call(cmd.split(), shell=True)
+    subprocess.call(cmd.split())
 
 # git clone
 url = 'https://github.com/chentinghao/download_google_drive.git'
@@ -46,3 +49,4 @@ else:
 cmd = 'python tool/download_gdrive.py 1ao1ovG1Qtx4b7EoskHXmi2E9rp5CHLcZ u2net/u2net.pth'
 subprocess.call(cmd.split())
 
+print('complete.')
