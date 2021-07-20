@@ -4,7 +4,7 @@
 
 # ■Requirements
 - python 3.8+
-- Linux is required when using gunicorn. (Currently gunicorn does not support windows.)
+- Linux is required when using gunicorn. (Currently gunicorn does not support windows. Please use WSL2 for win10.)
 
 # ■Install
 ```
