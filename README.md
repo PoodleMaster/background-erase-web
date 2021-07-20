@@ -34,15 +34,16 @@ sudo docker-compose up
 - Execution example
 ```
 Building web
-[+] Building 1.9s (21/21) FINISHED
+[+] Building 4.4s (22/22) FINISHED
  => [internal] load build definition from Dockerfile                                                               0.0s
- => => transferring dockerfile: 38B                                                                                0.0s
+ => => transferring dockerfile: 1.03kB                                                                             0.0s
  => [internal] load .dockerignore                                                                                  0.0s
  => => transferring context: 2B                                                                                    0.0s
- => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           1.7s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           3.3s
+ => [auth] continuumio/miniconda3:pull token for registry-1.docker.io                                              0.0s
  => [ 1/16] FROM docker.io/continuumio/miniconda3@sha256:1d17ca42494bf4d99030845e05376eb2d246b1ed5ee61afbbf2d1f8f  0.0s
- => [internal] load build context                                                                                  0.0s
- => => transferring context: 368B                                                                                  0.0s
+ => [internal] load build context                                                                                  1.0s
+ => => transferring context: 176.60MB                                                                              1.0s
  => CACHED [ 2/16] RUN apt-get update                                                                              0.0s
  => CACHED [ 3/16] RUN apt-get install -y build-essential                                                          0.0s
  => CACHED [ 4/16] RUN conda update pip                                                                            0.0s
@@ -64,12 +65,21 @@ Building web
  => => naming to docker.io/library/background-erase-web_web                                                        0.0s
 
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
-Starting background-erase-web_web_1 ... done
+WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Creating background-erase-web_web_1 ... done
 Attaching to background-erase-web_web_1
-web_1  | [2021-07-20 02:27:49 +0000] [1] [INFO] Starting gunicorn 20.1.0
-web_1  | [2021-07-20 02:27:49 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
-web_1  | [2021-07-20 02:27:49 +0000] [1] [INFO] Using worker: sync
-web_1  | [2021-07-20 02:27:49 +0000] [9] [INFO] Booting worker with pid: 9
+web_1  | [2021-07-20 03:05:57 +0000] [1] [INFO] Starting gunicorn 20.1.0
+web_1  | [2021-07-20 03:05:57 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+web_1  | [2021-07-20 03:05:57 +0000] [1] [INFO] Using worker: sync
+web_1  | [2021-07-20 03:05:57 +0000] [8] [INFO] Booting worker with pid: 8
+web_1  | [2021-07-20 03:06:47 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:8)
+web_1  | [2021-07-20 03:06:47 +0000] [8] [INFO] Worker exiting (pid: 8)
+web_1  | Failed to import ahead-of-time-compiled modules.
+web_1  | This is expected on first import.
+web_1  | Compiling modules and trying again.
+web_1  | This might take a minute.
+web_1  | Successfully imported ahead-of-time-compiled modules.
+web_1  | [2021-07-20 03:06:47 +0000] [62] [INFO] Booting worker with pid: 62
 ```
 👉http://localhost:5000/
 
