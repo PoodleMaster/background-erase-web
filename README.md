@@ -29,7 +29,7 @@ python get_u2net.py
 
 You can execute it until startup with one command.
 ```
-docker-compose up
+sudo docker-compose up
 ```
 
 - Execution example
@@ -79,8 +79,8 @@ web_1  | [2021-07-20 02:27:49 +0000] [9] [INFO] Booting worker with pid: 9
 
 After creating the docker image, create and run the container.
 ```
-docker build -t minicon3:1.5 .
-docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
+sudo docker build -t minicon3:1.5 .
+sudo docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
 
 - Execution example
