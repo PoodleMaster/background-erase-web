@@ -13,9 +13,9 @@ cd background-erase-web
 ```
 
 # ■Server startup
-It can be started by the following four methods, A-1, A-2, B, and C.
+It can be started by the following four methods, A-1, A-2, B-1, and B-2.
 
-## (A) Using Docker
+## (A) When using Docker
 Please execute "get_u2net.py" in advance to get "u2net.pth".
 Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
 However, it is very large at 168MB, so it is recommended to download it in advance.
@@ -43,15 +43,19 @@ docker run -it --publish=5000:5000 --name="rembg" minicon3:1.5
 ```
 http://localhost:5000/
 
-## (B) Using Gunicorn
-- Execution command
-
-Start the server using the HTTP server (gunicorn) command.
+## (B) Without Docker
 ```
 conda create -n rembg38 python=3.8
 conda activate rembg38
 conda install gcc_linux-64 gxx_linux-64
 pip install -r requirements.txt
+```
+
+### (B-1) Using Gunicorn
+- Execution command
+
+Start the server using the HTTP server (gunicorn) command.
+```
 gunicorn --bind=localhost:8000 server:app
 ```
 
@@ -64,15 +68,11 @@ gunicorn --bind=localhost:8000 server:app
 ```
 http://localhost:8000/
 
-## (C) Using Flask
+## (B-2) Using Flask
 - Execution command
 
 Even if you don't have an HTTP server (gunicorn), you can run it with Flask's simple HTTP server function.
 ```
-conda create -n rembg38 python=3.8
-conda activate rembg38
-conda install gcc_linux-64 gxx_linux-64
-pip install -r requirements.txt
 python server.py
 ```
 
