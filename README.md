@@ -94,15 +94,10 @@ sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
 
 - Execution example
 ```
-[2021-07-20 02:17:41 +0000] [1] [INFO] Starting gunicorn 20.1.0
-[2021-07-20 02:17:41 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
-[2021-07-20 02:17:41 +0000] [1] [INFO] Using worker: sync
-[2021-07-20 02:17:41 +0000] [8] [INFO] Booting worker with pid: 8
-Failed to import ahead-of-time-compiled modules.
-This is expected on first import.
-Compiling modules and trying again.
-This might take a minute.
-Successfully imported ahead-of-time-compiled modules.
+[2021-07-22 10:06:11 +0000] [1] [INFO] Starting gunicorn 20.1.0
+[2021-07-22 10:06:11 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+[2021-07-22 10:06:11 +0000] [1] [INFO] Using worker: sync
+[2021-07-22 10:06:11 +0000] [9] [INFO] Booting worker with pid: 9
 ```
 👉http://localhost:5000/
 
