@@ -1,5 +1,6 @@
 # base
 FROM continuumio/miniconda3
+# FROM rembg_aot
 
 # init
 RUN apt-get update
@@ -10,7 +11,8 @@ RUN conda update pip
 RUN conda install gcc_linux-64 gxx_linux-64
 
 # install pip package
-RUN pip install pymatting
+RUN pip install --upgrade pymatting
+RUN python3 -c "import pymatting"
 RUN pip install Flask==2.0.1
 RUN pip install torch==1.7.1+cpu --find-links https://download.pytorch.org/whl/torch_stable.html
 RUN pip install torchvision==0.8.2+cpu --find-links https://download.pytorch.org/whl/torch_stable.html
@@ -27,7 +29,13 @@ WORKDIR /bg
 COPY server.py .
 COPY static static/
 COPY templates templates/
+RUN git clone https://github.com/pymatting/pymatting
+RUN python pymatting/pymatting_aot/cc.py
 
-# docker command
-EXPOSE 5000
-CMD ["gunicorn", "--bind=0.0.0.0:5000", "server:app"]
+# without Heroku (docker only)
+# EXPOSE 5000
+# CMD ["gunicorn", "--bind=0.0.0.0:5000", "server:app"]
+
+# Heroku deploy
+CMD gunicorn --bind 0.0.0.0:$PORT server:app
+
