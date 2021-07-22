@@ -37,53 +37,49 @@ sudo docker-compose up
 
 - Execution example
 ```
+Creating network "background-erase-web_default" with the default driver
 Building web
-[+] Building 4.4s (22/22) FINISHED
+[+] Building 4.9s (25/25) FINISHED
  => [internal] load build definition from Dockerfile                                                               0.0s
- => => transferring dockerfile: 1.03kB                                                                             0.0s
+ => => transferring dockerfile: 1.26kB                                                                             0.0s
  => [internal] load .dockerignore                                                                                  0.0s
  => => transferring context: 2B                                                                                    0.0s
- => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           3.3s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           3.6s
  => [auth] continuumio/miniconda3:pull token for registry-1.docker.io                                              0.0s
- => [ 1/16] FROM docker.io/continuumio/miniconda3@sha256:1d17ca42494bf4d99030845e05376eb2d246b1ed5ee61afbbf2d1f8f  0.0s
- => [internal] load build context                                                                                  1.0s
- => => transferring context: 176.60MB                                                                              1.0s
- => CACHED [ 2/16] RUN apt-get update                                                                              0.0s
- => CACHED [ 3/16] RUN apt-get install -y build-essential                                                          0.0s
- => CACHED [ 4/16] RUN conda update pip                                                                            0.0s
- => CACHED [ 5/16] RUN conda install gcc_linux-64 gxx_linux-64                                                     0.0s
- => CACHED [ 6/16] RUN pip install pymatting                                                                       0.0s
- => CACHED [ 7/16] RUN pip install Flask==2.0.1                                                                    0.0s
- => CACHED [ 8/16] RUN pip install torch==1.7.1+cpu --find-links https://download.pytorch.org/whl/torch_stable.ht  0.0s
- => CACHED [ 9/16] RUN pip install torchvision==0.8.2+cpu --find-links https://download.pytorch.org/whl/torch_sta  0.0s
- => CACHED [10/16] RUN pip install rembg==1.0.27                                                                   0.0s
- => CACHED [11/16] RUN pip install gunicorn==20.1.0                                                                0.0s
- => CACHED [12/16] COPY u2net/u2net.pth /root/.u2net/                                                              0.0s
- => CACHED [13/16] WORKDIR /bg                                                                                     0.0s
- => CACHED [14/16] COPY server.py .                                                                                0.0s
- => CACHED [15/16] COPY static static/                                                                             0.0s
- => CACHED [16/16] COPY templates templates/                                                                       0.0s
+ => [internal] load build context                                                                                  1.1s
+ => => transferring context: 176.60MB                                                                              1.1s
+ => [ 1/19] FROM docker.io/continuumio/miniconda3@sha256:1d17ca42494bf4d99030845e05376eb2d246b1ed5ee61afbbf2d1f8f  0.0s
+ => CACHED [ 2/19] RUN apt-get update                                                                              0.0s
+ => CACHED [ 3/19] RUN apt-get install -y build-essential                                                          0.0s
+ => CACHED [ 4/19] RUN conda update pip                                                                            0.0s
+ => CACHED [ 5/19] RUN conda install gcc_linux-64 gxx_linux-64                                                     0.0s
+ => CACHED [ 6/19] RUN pip install --upgrade pymatting                                                             0.0s
+ => CACHED [ 7/19] RUN python3 -c "import pymatting"                                                               0.0s
+ => CACHED [ 8/19] RUN pip install Flask==2.0.1                                                                    0.0s
+ => CACHED [ 9/19] RUN pip install torch==1.7.1+cpu --find-links https://download.pytorch.org/whl/torch_stable.ht  0.0s
+ => CACHED [10/19] RUN pip install torchvision==0.8.2+cpu --find-links https://download.pytorch.org/whl/torch_sta  0.0s
+ => CACHED [11/19] RUN pip install rembg==1.0.27                                                                   0.0s
+ => CACHED [12/19] RUN pip install gunicorn==20.1.0                                                                0.0s
+ => CACHED [13/19] COPY u2net/u2net.pth /root/.u2net/                                                              0.0s
+ => CACHED [14/19] WORKDIR /bg                                                                                     0.0s
+ => CACHED [15/19] COPY server.py .                                                                                0.0s
+ => CACHED [16/19] COPY static static/                                                                             0.0s
+ => CACHED [17/19] COPY templates templates/                                                                       0.0s
+ => CACHED [18/19] RUN git clone https://github.com/pymatting/pymatting                                            0.0s
+ => CACHED [19/19] RUN python pymatting/pymatting_aot/cc.py                                                        0.0s
  => exporting to image                                                                                             0.0s
  => => exporting layers                                                                                            0.0s
- => => writing image sha256:9a729e2d288a318a162bdba490bb3a9b8e1b117285ea3f41b6aaf7c89e5db132                       0.0s
+ => => writing image sha256:8b70ab4a82cff22233b1aade7ce4bb234314830cb3bf26e1ccca651c651095a5                       0.0s
  => => naming to docker.io/library/background-erase-web_web                                                        0.0s
 
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
 WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 Creating background-erase-web_web_1 ... done
 Attaching to background-erase-web_web_1
-web_1  | [2021-07-20 03:05:57 +0000] [1] [INFO] Starting gunicorn 20.1.0
-web_1  | [2021-07-20 03:05:57 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
-web_1  | [2021-07-20 03:05:57 +0000] [1] [INFO] Using worker: sync
-web_1  | [2021-07-20 03:05:57 +0000] [8] [INFO] Booting worker with pid: 8
-web_1  | [2021-07-20 03:06:47 +0000] [1] [CRITICAL] WORKER TIMEOUT (pid:8)
-web_1  | [2021-07-20 03:06:47 +0000] [8] [INFO] Worker exiting (pid: 8)
-web_1  | Failed to import ahead-of-time-compiled modules.
-web_1  | This is expected on first import.
-web_1  | Compiling modules and trying again.
-web_1  | This might take a minute.
-web_1  | Successfully imported ahead-of-time-compiled modules.
-web_1  | [2021-07-20 03:06:47 +0000] [62] [INFO] Booting worker with pid: 62
+web_1  | [2021-07-22 10:01:54 +0000] [1] [INFO] Starting gunicorn 20.1.0
+web_1  | [2021-07-22 10:01:54 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+web_1  | [2021-07-22 10:01:54 +0000] [1] [INFO] Using worker: sync
+web_1  | [2021-07-22 10:01:54 +0000] [8] [INFO] Booting worker with pid: 8
 ```
 👉http://localhost:5000/
 
