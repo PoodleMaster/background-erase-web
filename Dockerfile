@@ -33,9 +33,10 @@ RUN git clone https://github.com/pymatting/pymatting
 RUN python pymatting/pymatting_aot/cc.py
 
 # without Heroku (docker only)
-# EXPOSE 5000
+EXPOSE 5000
 # CMD ["gunicorn", "--bind=localhost:5000", "server:app"]
+CMD ["gunicorn", "--bind=0.0.0.0:5000", "server:app"]
 
 # Heroku deploy
-CMD gunicorn --bind 0.0.0.0:$PORT server:app
+# CMD gunicorn --bind 0.0.0.0:$PORT server:app
 
