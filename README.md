@@ -11,6 +11,10 @@
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
 ```
+```
+conda create -n bge38 python=3.8
+conda activate bge38
+```
 
 # ■Server startup
 It can be started by the following four methods, A-1, A-2, B-1, and B-2.
@@ -109,8 +113,6 @@ Successfully imported ahead-of-time-compiled modules.
 ## (B) Without Docker
 Install the python library.
 ```
-conda create -n rembg38 python=3.8
-conda activate rembg38
 conda install gcc_linux-64 gxx_linux-64
 pip install -r requirements.txt
 ```
