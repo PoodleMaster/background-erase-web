@@ -89,7 +89,7 @@ web_1  | [2021-07-20 03:06:47 +0000] [62] [INFO] Booting worker with pid: 62
 After creating the docker image, create and run the container.
 ```
 sudo docker build -t img_bge_local:1.0 .
-sudo docker run -it --publish=5000:5000 --name="rembg" img_bge_local:1.0
+sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
 ```
 
 - Execution example
