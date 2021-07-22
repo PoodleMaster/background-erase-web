@@ -94,6 +94,39 @@ sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
 
 - Execution example
 ```
+[+] Building 3.0s (24/24) FINISHED
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 1.26kB                                                                             0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           1.8s
+ => [internal] load build context                                                                                  1.0s
+ => => transferring context: 176.60MB                                                                              1.0s
+ => [ 1/19] FROM docker.io/continuumio/miniconda3@sha256:1d17ca42494bf4d99030845e05376eb2d246b1ed5ee61afbbf2d1f8f  0.0s
+ => CACHED [ 2/19] RUN apt-get update                                                                              0.0s
+ => CACHED [ 3/19] RUN apt-get install -y build-essential                                                          0.0s
+ => CACHED [ 4/19] RUN conda update pip                                                                            0.0s
+ => CACHED [ 5/19] RUN conda install gcc_linux-64 gxx_linux-64                                                     0.0s
+ => CACHED [ 6/19] RUN pip install --upgrade pymatting                                                             0.0s
+ => CACHED [ 7/19] RUN python3 -c "import pymatting"                                                               0.0s
+ => CACHED [ 8/19] RUN pip install Flask==2.0.1                                                                    0.0s
+ => CACHED [ 9/19] RUN pip install torch==1.7.1+cpu --find-links https://download.pytorch.org/whl/torch_stable.ht  0.0s
+ => CACHED [10/19] RUN pip install torchvision==0.8.2+cpu --find-links https://download.pytorch.org/whl/torch_sta  0.0s
+ => CACHED [11/19] RUN pip install rembg==1.0.27                                                                   0.0s
+ => CACHED [12/19] RUN pip install gunicorn==20.1.0                                                                0.0s
+ => CACHED [13/19] COPY u2net/u2net.pth /root/.u2net/                                                              0.0s
+ => CACHED [14/19] WORKDIR /bg                                                                                     0.0s
+ => CACHED [15/19] COPY server.py .                                                                                0.0s
+ => CACHED [16/19] COPY static static/                                                                             0.0s
+ => CACHED [17/19] COPY templates templates/                                                                       0.0s
+ => CACHED [18/19] RUN git clone https://github.com/pymatting/pymatting                                            0.0s
+ => CACHED [19/19] RUN python pymatting/pymatting_aot/cc.py                                                        0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:8b70ab4a82cff22233b1aade7ce4bb234314830cb3bf26e1ccca651c651095a5                       0.0s
+ => => naming to docker.io/library/img_bge_local:1.0                                                               0.0s
+```
+```
 [2021-07-22 10:06:11 +0000] [1] [INFO] Starting gunicorn 20.1.0
 [2021-07-22 10:06:11 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
 [2021-07-22 10:06:11 +0000] [1] [INFO] Using worker: sync
