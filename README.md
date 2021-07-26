@@ -177,11 +177,9 @@ python server.py
 
 # ■Deploy to Heroku
 Deploy to Heroku using the docker file.
-- "u2net.pth" Get
 
-Please execute "get_u2net.py" in advance to get "u2net.pth".
-Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
-However, it is very large at 168MB, so it is recommended to download it in advance.
+- "u2net.pth" Get
+Download large weight files in advance and store them in the Docker image.
 ```
 python get_u2net.py
 ```
