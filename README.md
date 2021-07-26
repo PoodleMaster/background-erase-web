@@ -6,18 +6,14 @@
 - python 3.8+
 - Linux is required when using gunicorn. (Currently gunicorn does not support windows. In case of win10, Gunicorn can also be operated by using Docker or WSL2.)
 
-# ■Install
+# ■Local Server startup
+It can be started by the following four methods, A-1, A-2, B-1, and B-2.
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
-```
-```
 conda create -n bge38 python=3.8
 conda activate bge38
 ```
-
-# ■Local Server startup
-It can be started by the following four methods, A-1, A-2, B-1, and B-2.
 
 ## (A) When using Docker
 Please execute "get_u2net.py" in advance to get "u2net.pth".
@@ -176,6 +172,16 @@ python server.py
  * Running on http://127.0.0.1:9000/ (Press CTRL+C to quit)
  ```
 👉http://localhost:9000/
+
+# ■Deploy to Heroku
+Deploy to Heroku using the docker file.
+```
+git clone https://github.com/PoodleMaster/background-erase-web
+cd background-erase-web
+sudo heroku create bge-web
+sudo heroku container:push web -a bge-web
+sudo heroku container:release web -a bge-web
+```
 
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
