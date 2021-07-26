@@ -28,7 +28,7 @@ Execute (A-3)-a when using docker-compose, and (A-3)-b when not using docker-com
 ### (A-1)：Docker File Setting
 Set up Docker File.
 ```
-cp Dockerfile.heroku Dockerfile
+cp Dockerfile.local Dockerfile
 ```
 
 ### (A-2)："u2net.pth" Get
