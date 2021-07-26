@@ -16,7 +16,7 @@ conda create -n bge38 python=3.8
 conda activate bge38
 ```
 
-# ■Server startup
+# ■Local Server startup
 It can be started by the following four methods, A-1, A-2, B-1, and B-2.
 
 ## (A) When using Docker
