@@ -178,15 +178,20 @@ python server.py
 # ■Deploy to Heroku
 Deploy to Heroku using the docker file.
 
-- "u2net.pth" Get
+## (1). Docker File Setting
+Set up Docker File.
+```
+cp Dockerfile.heroku Dockerfile
+```
 
+## (2) "u2net.pth" Get
 Download large weight file in advance. Used when creating a Docker image.
 ```
 python get_u2net.py
 ```
 
-- Deploy using Heroku CLI ([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
-
+## (3) Deploy using Heroku CLI ([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
+Deploy using the Heroku command.
 ```
 sudo heroku container:login
 sudo heroku create bge-web
@@ -194,8 +199,7 @@ sudo heroku container:push web -a bge-web
 sudo heroku container:release web -a bge-web
 ```
 
-- Heroku Log
-
+## (4) Heroku Log
 How to browse Heroku Log.
 ```
 sudo heroku logs --tail -a bge-web
