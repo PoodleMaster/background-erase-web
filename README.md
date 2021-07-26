@@ -206,8 +206,8 @@ Download large weight file in advance. Used when creating a Docker image.
 python get_u2net.py
 ```
 
-## (3)：Deploy using Heroku CLI ([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
-Deploy using the Heroku command.
+## (3)：Deploy using Heroku CLI
+Deploy using the Heroku command.([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
 ```
 sudo heroku container:login
 sudo heroku create bge-web
