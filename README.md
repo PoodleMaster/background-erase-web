@@ -198,7 +198,7 @@ sudo heroku container:release web -a bge-web
 
 How to browse Heroku Log.
 ```
-heroku logs --tail -a bge-web
+sudo heroku logs --tail -a bge-web
 ```
 
 # ■AI image processing engine
