@@ -25,13 +25,13 @@ How to start when Localhost is used as a server.
 ## (A) When using Docker
 Execute (A-3)-a when using docker-compose, and (A-3)-b when not using docker-compose.
 
-### (A-1). Docker File Setting
+### (A-1)：Docker File Setting
 Set up Docker File.
 ```
 cp Dockerfile.heroku Dockerfile
 ```
 
-### (A-2) "u2net.pth" Get
+### (A-2)："u2net.pth" Get
 Please execute "get_u2net.py" in advance to get "u2net.pth".
 Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
 However, it is very large at 168MB, so it is recommended to download it in advance.
@@ -39,7 +39,7 @@ However, it is very large at 168MB, so it is recommended to download it in advan
 python get_u2net.py
 ```
 
-### (A-3)-a Using Docker-compose
+### (A-3)-a：Using Docker-compose
 - Execution command
 
 You can execute it until startup with one command.
@@ -95,7 +95,7 @@ web_1  | [2021-07-22 10:01:54 +0000] [8] [INFO] Booting worker with pid: 8
 ```
 👉http://localhost:5000/
 
-### (A-3)-b Using Docker
+### (A-3)-b：Using Docker
 - Execution command
 
 After creating the docker image, create and run the container.
@@ -149,13 +149,13 @@ sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
 ## (B) Without Docker
 Execute (B-2)-a when using Gunicorn, and (B-2)-b when using Flask.
 
-### (B-1) Install the python library.
+### (B-1)：Install the python library.
 ```
 conda install gcc_linux-64 gxx_linux-64
 pip install -r requirements.txt
 ```
 
-### (B-2)-a Using Gunicorn
+### (B-2)-a：Using Gunicorn
 - Execution command
 
 Start the server using the HTTP server (gunicorn) command.
@@ -172,7 +172,7 @@ gunicorn --bind=localhost:8000 server:app
 ```
 👉http://localhost:8000/
 
-## (B-2)-b Using Flask
+## (B-2)-b：Using Flask
 - Execution command
 
 Even if you don't have an HTTP server (gunicorn), you can run it with Flask's simple HTTP server function.
@@ -194,19 +194,19 @@ python server.py
 # ■Deploy to Heroku
 Deploy to Heroku using the docker file.
 
-## (1). Docker File Setting
+## (1)：Docker File Setting
 Set up Docker File.
 ```
 cp Dockerfile.heroku Dockerfile
 ```
 
-## (2) "u2net.pth" Get
+## (2)："u2net.pth" Get
 Download large weight file in advance. Used when creating a Docker image.
 ```
 python get_u2net.py
 ```
 
-## (3) Deploy using Heroku CLI ([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
+## (3)：Deploy using Heroku CLI ([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
 Deploy using the Heroku command.
 ```
 sudo heroku container:login
@@ -215,7 +215,7 @@ sudo heroku container:push web -a bge-web
 sudo heroku container:release web -a bge-web
 ```
 
-## (4) Heroku Log
+## (4)：Heroku Log
 How to browse Heroku Log.
 ```
 sudo heroku logs --tail -a bge-web
