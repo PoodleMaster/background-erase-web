@@ -177,13 +177,6 @@ python server.py
 
 # ■Deploy to Heroku
 Deploy to Heroku using the docker file.
-
-- Heroku CLI(Command Line Interface) Install
-
-```
-https://devcenter.heroku.com/articles/heroku-cli
-```
-
 - "u2net.pth" Get
 
 Please execute "get_u2net.py" in advance to get "u2net.pth".
@@ -193,7 +186,7 @@ However, it is very large at 168MB, so it is recommended to download it in advan
 python get_u2net.py
 ```
 
-- Deploy using Heroku CLI
+- Deploy using Heroku CLI ([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
 
 ```
 sudo heroku container:login
