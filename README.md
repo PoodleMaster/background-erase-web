@@ -6,14 +6,16 @@
 - python 3.8+
 - Linux is required when using gunicorn. (Currently gunicorn does not support windows. In case of win10, Gunicorn can also be operated by using Docker or WSL2.)
 
-# ■Local Server startup
-It can be started by the following four methods, A-1, A-2, B-1, and B-2.
+# ■Install
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
 conda create -n bge38 python=3.8
 conda activate bge38
 ```
+
+# ■Local Server startup
+It can be started by the following four methods, A-1, A-2, B-1, and B-2.
 
 ## (A) When using Docker
 Please execute "get_u2net.py" in advance to get "u2net.pth".
@@ -175,15 +177,24 @@ python server.py
 
 # ■Deploy to Heroku
 Deploy to Heroku using the docker file.
-- Heroku CLI(Command Line Interface) Install ：https://devcenter.heroku.com/articles/heroku-cli
+
+- Heroku CLI(Command Line Interface) Install
+
+```
+https://devcenter.heroku.com/articles/heroku-cli
+```
+
 - "u2net.pth" Get
+
 Please execute "get_u2net.py" in advance to get "u2net.pth".
 Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
 However, it is very large at 168MB, so it is recommended to download it in advance.
 ```
 python get_u2net.py
 ```
+
 - Deploy using Heroku CLI
+
 ```
 sudo heroku container:login
 sudo heroku create bge-web
