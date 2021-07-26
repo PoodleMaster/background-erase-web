@@ -7,17 +7,31 @@
 - Linux is required when using gunicorn. (Currently gunicorn does not support windows. In case of win10, Gunicorn can also be operated by using Docker or WSL2.)
 
 # ■Install
+- Apprication Git Clone
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
+```
+
+- Python environment creation
+```
 conda create -n bge38 python=3.8
 conda activate bge38
 ```
 
 # ■Local Server startup
-It can be started by the following four methods, A-1, A-2, B-1, and B-2.
+How to start when Localhost is used as a server.
 
 ## (A) When using Docker
+Execute (A-3)-a when using docker-compose, and (A-3)-b when not using docker-compose.
+
+### (A-1). Docker File Setting
+Set up Docker File.
+```
+cp Dockerfile.heroku Dockerfile
+```
+
+### (A-2) "u2net.pth" Get
 Please execute "get_u2net.py" in advance to get "u2net.pth".
 Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
 However, it is very large at 168MB, so it is recommended to download it in advance.
@@ -25,7 +39,7 @@ However, it is very large at 168MB, so it is recommended to download it in advan
 python get_u2net.py
 ```
 
-### (A-1) Using Docker-compose
+### (A-3)-a Using Docker-compose
 - Execution command
 
 You can execute it until startup with one command.
@@ -81,7 +95,7 @@ web_1  | [2021-07-22 10:01:54 +0000] [8] [INFO] Booting worker with pid: 8
 ```
 👉http://localhost:5000/
 
-### (A-2) Using Docker
+### (A-3)-b Using Docker
 - Execution command
 
 After creating the docker image, create and run the container.
@@ -133,13 +147,15 @@ sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
 👉http://localhost:5000/
 
 ## (B) Without Docker
-Install the python library.
+Execute (B-2)-a when using Gunicorn, and (B-2)-b when using Flask.
+
+### (B-1) Install the python library.
 ```
 conda install gcc_linux-64 gxx_linux-64
 pip install -r requirements.txt
 ```
 
-### (B-1) Using Gunicorn
+### (B-2)-a Using Gunicorn
 - Execution command
 
 Start the server using the HTTP server (gunicorn) command.
@@ -156,7 +172,7 @@ gunicorn --bind=localhost:8000 server:app
 ```
 👉http://localhost:8000/
 
-## (B-2) Using Flask
+## (B-2)-b Using Flask
 - Execution command
 
 Even if you don't have an HTTP server (gunicorn), you can run it with Flask's simple HTTP server function.
