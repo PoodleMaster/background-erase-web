@@ -179,6 +179,7 @@ python server.py
 Deploy to Heroku using the docker file.
 
 - "u2net.pth" Get
+
 Download large weight files in advance and store them in the Docker image.
 ```
 python get_u2net.py
