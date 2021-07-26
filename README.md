@@ -175,13 +175,14 @@ python server.py
 
 # ■Deploy to Heroku
 Deploy to Heroku using the docker file.
-
 - Heroku CLI(Command Line Interface) Install ：https://devcenter.heroku.com/articles/heroku-cli
-
-- Git Clone
+- "u2net.pth" Get
 ```
-git clone https://github.com/PoodleMaster/background-erase-web
-cd background-erase-web
+Please execute "get_u2net.py" in advance to get "u2net.pth".
+Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
+However, it is very large at 168MB, so it is recommended to download it in advance.
+```
+python get_u2net.py
 ```
 - Deploy using Heroku CLI
 ```
