@@ -175,9 +175,17 @@ python server.py
 
 # ■Deploy to Heroku
 Deploy to Heroku using the docker file.
+
+- Heroku CLI(Command Line Interface) Install
+https://devcenter.heroku.com/articles/heroku-cli
+
+- Git Clone
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
+```
+- Deploy using Heroku CLI
+```
 sudo heroku container:login
 sudo heroku create bge-web
 sudo heroku container:push web -a bge-web
