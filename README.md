@@ -178,6 +178,7 @@ Deploy to Heroku using the docker file.
 ```
 git clone https://github.com/PoodleMaster/background-erase-web
 cd background-erase-web
+sudo heroku container:login
 sudo heroku create bge-web
 sudo heroku container:push web -a bge-web
 sudo heroku container:release web -a bge-web
