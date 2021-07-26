@@ -194,6 +194,13 @@ sudo heroku container:push web -a bge-web
 sudo heroku container:release web -a bge-web
 ```
 
+- Heroku Log
+
+How to browse Heroku Log.
+```
+heroku logs --tail -a bge-web
+```
+
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
 
