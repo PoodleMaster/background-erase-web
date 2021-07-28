@@ -153,8 +153,8 @@ sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
 ## (B) Without Docker
 Execute (B-2)-a when using Gunicorn, and (B-2)-b when using Flask.
 
-- Gunicorn：(B-1) → (A-2)-a
-- Flask：(B-1) → (A-2)-b
+- Gunicorn：(B-1) → (B-2)-a
+- Flask：(B-1) → (B-2)-b
 
 ### (B-1)：Install the python library.
 ```
