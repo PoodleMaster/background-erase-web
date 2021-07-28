@@ -231,7 +231,7 @@ sudo heroku logs --tail -a bge-web
 # ■AI image processing engine
 rembg：https://github.com/danielgatis/rembg
 
-## ■Sample
+# ■Sample
 Please access the following URL.
 
 URL：https://bge-web.herokuapp.com/
