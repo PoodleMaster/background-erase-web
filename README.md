@@ -216,18 +216,19 @@ python get_u2net.py
 ## (3)：Deploy using Heroku CLI
 Deploy using the Heroku command.([Heroku CLI Install](https://devcenter.heroku.com/articles/heroku-cli))
 
-{Heroku AppName} → Make it a unique application name on heroku.
+- {Heroku AppName} → Make it a unique application name on heroku.
+- example：{Heroku AppName} is `bge-web`.
 ```
 sudo heroku container:login
-sudo heroku create {Heroku AppName}
-sudo heroku container:push web -a {Heroku AppName}
-sudo heroku container:release web -a {Heroku AppName}
+sudo heroku create bge-web
+sudo heroku container:push web -a bge-web
+sudo heroku container:release web -a bge-web
 ```
 
 ## (4)：Heroku Log
 How to browse Heroku Log.
 ```
-sudo heroku logs --tail -a {Heroku AppName}
+sudo heroku logs --tail -a bge-web
 ```
 
 # ■AI image processing engine
