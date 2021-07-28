@@ -198,7 +198,7 @@ python server.py
  ```
 👉http://localhost:9000/
 
-# ■Deploy to Heroku
+# ■Deploy to Heroku (Container Registry)
 Deploy to Heroku using the docker file.
 
 ## (1)：Docker File Setting
