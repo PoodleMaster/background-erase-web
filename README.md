@@ -39,7 +39,7 @@ However, it is very large at 168MB, so it is recommended to download it in advan
 python get_u2net.py
 ```
 
-### (A-3)-a：Using Docker-compose
+### (A-3)-a：Using Docker-compose Command
 - Execution command
 
 You can execute it until startup with one command.
@@ -95,7 +95,7 @@ web_1  | [2021-07-22 10:01:54 +0000] [8] [INFO] Booting worker with pid: 8
 ```
 👉http://localhost:5000/
 
-### (A-3)-b：Using Docker
+### (A-3)-b：Using Docker Commands
 - Execution command
 
 After creating the docker image, create and run the container.
