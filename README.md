@@ -89,10 +89,10 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
 Creating background-erase-web_web_1 ... done
 Attaching to background-erase-web_web_1
-web_1  | [2021-07-22 10:01:54 +0000] [1] [INFO] Starting gunicorn 20.1.0
-web_1  | [2021-07-22 10:01:54 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
-web_1  | [2021-07-22 10:01:54 +0000] [1] [INFO] Using worker: sync
-web_1  | [2021-07-22 10:01:54 +0000] [8] [INFO] Booting worker with pid: 8
+background-erase  | [2021-07-22 10:01:54 +0000] [1] [INFO] Starting gunicorn 20.1.0
+background-erase  | [2021-07-22 10:01:54 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+background-erase  | [2021-07-22 10:01:54 +0000] [1] [INFO] Using worker: sync
+background-erase  | [2021-07-22 10:01:54 +0000] [8] [INFO] Booting worker with pid: 8
 ```
 👉http://localhost:5000/
 
