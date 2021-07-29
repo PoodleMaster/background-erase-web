@@ -102,21 +102,21 @@ con-bge | [2021-07-29 05:28:34 +0000] [8] [INFO] Booting worker with pid: 8
 
 After creating the docker image, create and run the container.
 ```
-sudo docker build -t img_bge_local:1.0 .
-sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
+sudo docker build -t img-bge:1.0 .
+sudo docker run -it --publish=5000:5000 --name="con-bge" img-bge:1.0
 ```
 
 - Execution example
 ```
-[+] Building 3.0s (24/24) FINISHED
+[+] Building 8.1s (24/24) FINISHED
  => [internal] load build definition from Dockerfile                                                               0.0s
- => => transferring dockerfile: 1.26kB                                                                             0.0s
+ => => transferring dockerfile: 1.49kB                                                                             0.0s
  => [internal] load .dockerignore                                                                                  0.0s
  => => transferring context: 2B                                                                                    0.0s
- => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           1.8s
- => [internal] load build context                                                                                  1.0s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                           6.7s
+ => [ 1/19] FROM docker.io/continuumio/miniconda3@sha256:592a60b95b547f31c11dc6593832e962952e3178f1fa11db37f43a2a  0.0s
+ => [internal] load build context                                                                                  1.1s
  => => transferring context: 176.60MB                                                                              1.0s
- => [ 1/19] FROM docker.io/continuumio/miniconda3@sha256:1d17ca42494bf4d99030845e05376eb2d246b1ed5ee61afbbf2d1f8f  0.0s
  => CACHED [ 2/19] RUN apt-get update                                                                              0.0s
  => CACHED [ 3/19] RUN apt-get install -y build-essential                                                          0.0s
  => CACHED [ 4/19] RUN conda update pip                                                                            0.0s
@@ -135,16 +135,16 @@ sudo docker run -it --publish=5000:5000 --name="con_bge_local" img_bge_local:1.0
  => CACHED [17/19] COPY templates templates/                                                                       0.0s
  => CACHED [18/19] RUN git clone https://github.com/pymatting/pymatting                                            0.0s
  => CACHED [19/19] RUN python pymatting/pymatting_aot/cc.py                                                        0.0s
- => exporting to image                                                                                             0.0s
+ => exporting to image                                                                                             0.2s
  => => exporting layers                                                                                            0.0s
- => => writing image sha256:8b70ab4a82cff22233b1aade7ce4bb234314830cb3bf26e1ccca651c651095a5                       0.0s
- => => naming to docker.io/library/img_bge_local:1.0                                                               0.0s
+ => => writing image sha256:77ca4022a1f50921b98200b08c129b2927aa38d6cc4311912c115cc7f487e57b                       0.0s
+ => => naming to docker.io/library/img-bge:1.0                                                                     0.0s
 ```
 ```
-[2021-07-22 10:06:11 +0000] [1] [INFO] Starting gunicorn 20.1.0
-[2021-07-22 10:06:11 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
-[2021-07-22 10:06:11 +0000] [1] [INFO] Using worker: sync
-[2021-07-22 10:06:11 +0000] [9] [INFO] Booting worker with pid: 9
+[2021-07-29 05:32:59 +0000] [1] [INFO] Starting gunicorn 20.1.0
+[2021-07-29 05:32:59 +0000] [1] [INFO] Listening at: http://0.0.0.0:5000 (1)
+[2021-07-29 05:32:59 +0000] [1] [INFO] Using worker: sync
+[2021-07-29 05:32:59 +0000] [7] [INFO] Booting worker with pid: 7
 ```
 👉http://localhost:5000/
 
