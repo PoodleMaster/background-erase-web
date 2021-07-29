@@ -4,4 +4,5 @@ services:
     build: .
     ports:
     - "5000:5000"
-    container_name: background-erase
+    image: img-bge
+    container_name: con-bge
