@@ -5,7 +5,7 @@ import subprocess
 
 
 # python Liblary install
-cmd = 'pip install GitPython urllib3 idna'
+cmd = 'pip install GitPython urllib3 idna requests'
 subprocess.call(cmd.split())
 import git
 
