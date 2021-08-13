@@ -40,6 +40,7 @@ Please execute "get_u2net.py" in advance to get "u2net.pth".
 Even if you don't copy .u2net into docker, it will be automatically acquired when rembg is running.
 However, it is very large at 168MB, so it is recommended to download it in advance.
 ```
+pip install requests
 python get_u2net.py
 ```
 
