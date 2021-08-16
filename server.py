@@ -27,11 +27,11 @@ def index():
 @app.route('/output', methods=['POST'])
 def output():
     # json形式でデータを受け取る
-    b64_pngdata = request.json['b64_pic']
-#   display(b64_pngdata, "b64_pngdata")
+    b64_data = request.json['b64_pic']
+#   display(b64_data, "b64_data")
 
     # base64デコード
-    tmpdata = b64_pngdata.split(',')        # base64のヘッダを削除
+    tmpdata = b64_data.split(',')           # base64のヘッダを削除
     bindata = base64.b64decode(tmpdata[1])  # 「data:image/png;base64,～」以降のデータのみをデコード
 
     # rembgでバックグランドを削除
@@ -47,12 +47,19 @@ def output():
 #   display(tmpdata, "tmpdata")
     tmpdata = tmpdata[2:-1]  # 「ｂ’～’」の中身だけをエンコード
 
-    data1 = "data:image/png;base64," + tmpdata
-    data2 = "OK"
+    # 返却データ設定
+    ext = b64_data.split(';')[0].split('/')[1]
+    if ext == 'png':
+        data1 = "data:image/png;base64," + tmpdata
+    else:
+        data1 = "data:image/jpeg;base64," + tmpdata
+
+    data2 = ext
 
     return_data = { "result_pic": data1,
-                    "result_okng": data2,
+                    "result_kind": data2,
                   }
+
 #   display(return_data, "return_data")
     return jsonify(ResultSet=json.dumps(return_data))
 
