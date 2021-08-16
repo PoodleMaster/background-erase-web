@@ -19,7 +19,7 @@
 //  console.log(pic);
 
     // JQueryによるPOST処理
-    // javascript→pythonへPNGデータ転送
+    // javascript→pythonへ画像データ転送
     var textData = JSON.stringify({'b64_pic':pic});
 //  console.log(textData);
 
@@ -41,12 +41,14 @@
         $('#exec').css( { 'cursor' : 'no-drop' });
         document.getElementById('ResultImg').src = response.result_pic;
         document.getElementById('link').href = response.result_pic;
-        document.getElementById('link').download = 'download.png';
+//      console.log(response.result_kind);
+        var ext = response.result_kind;
+        if (ext == 'png') {
+            document.getElementById('link').download = 'download.png';
+          } else {
+            document.getElementById('link').download = 'download.jpg';
+          }
         document.getElementById('link').innerHTML = "Click to Download!!";
-//      console.log(response.result_pic);
-
-        var okng = response.result_okng;
-//      console.log(okng);
       }
     });
   }
