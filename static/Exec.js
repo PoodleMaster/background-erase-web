@@ -1,6 +1,6 @@
 /*  
 ############################################################
-# by PoodleMaster
+# Copyright 2021 PoodleMaster. All rights reserved. 
 ############################################################
 */
   var canvas = document.createElement('canvas');
