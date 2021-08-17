@@ -1,5 +1,5 @@
 ############################################################
-# by PoodleMaster
+# Copyright 2021 PoodleMaster. All rights reserved. 
 ############################################################
 from flask import Flask, request, render_template, jsonify
 from rembg.bg import remove
