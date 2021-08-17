@@ -3,11 +3,40 @@
 # by PoodleMaster
 ############################################################
 */
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  var image = new Image();
+  image.crossOrigin = "Anonymous";
+  var send_pic
 
   //---------------------------------------------------------------------------
-  // Execボタン押下イベント
+  // image.onloadイベント (resize)
   //---------------------------------------------------------------------------
-    function exec_button() {
+  image.onload = function(){
+    var pic        = document.getElementById('previewtImg').src;
+    var pic_width  = document.getElementById('previewtImg').naturalWidth;
+    var pic_height = document.getElementById('previewtImg').naturalHeight;
+//  console.log(pic);
+    if (pic_width > 1024) {
+      var dst_width = 1024;
+      var dst_height = pic_height * (1024 / pic_width)
+      canvas.width  = dst_width;
+      canvas.height = dst_height;
+      ctx.drawImage(image, 0, 0, pic_width, pic_height, 0, 0, dst_width, dst_height);
+      send_pic = canvas.toDataURL();
+      document.getElementById('previewtImg').src = send_pic;
+    } else {
+      send_pic = pic
+    }
+//  console.log(send_pic);
+    document.getElementById('exec').disabled = false;
+    $('#exec').css( { 'cursor' : 'pointer' });
+  }
+
+  //---------------------------------------------------------------------------
+  // Execボタン押下イベント (切り抜き処理開始)
+  //---------------------------------------------------------------------------
+  function exec_button() {
 
     document.getElementById('exec').disabled = true;
     $('#ResultImg').css( { 'width' : '200' });
@@ -15,12 +44,10 @@
 //  wait_pic = 'static/wait.gif?' + (new Date()).getTime()
     wait_pic = 'static/wait.gif'
     document.getElementById('ResultImg').src = wait_pic
-    const pic = document.getElementById('previewtImg').src;
-//  console.log(pic);
 
     // JQueryによるPOST処理
     // javascript→pythonへ画像データ転送
-    var textData = JSON.stringify({'b64_pic':pic});
+    var textData = JSON.stringify({'b64_pic':send_pic});
 //  console.log(textData);
 
     $.ajax({
@@ -65,14 +92,14 @@
 
     // ファイルが読み込まれたときに実行する
     freader.onload = function (e) {
+      document.getElementById('exec').disabled = true;
       const imageUrl = e.target.result;
       document.getElementById('previewtImg').src = imageUrl;
       document.getElementById('ResultImg').src = '';
       document.getElementById('link').href = '';
       document.getElementById('link').download = '';
       document.getElementById('link').innerHTML = '';
-      document.getElementById('exec').disabled = false;
-      $('#exec').css( { 'cursor' : 'pointer' });
+      image.src = imageUrl;
 //    console.log(imageUrl);
     }
 
