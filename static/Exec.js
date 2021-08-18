@@ -16,8 +16,9 @@
   // 画像送信用
   var send_pic;
 
-  // モード用 (奇数：画像そのまま、偶数：画像縮小)
+  // モード用
   var mode = 0;
+  var resize_flag = true;
 
 
   //---------------------------------------------------------------------------
@@ -33,29 +34,47 @@
   //---------------------------------------------------------------------------
   function mode_change() {
     mode++;
-    document.getElementById('Good').innerHTML = '👍+' + String(mode);
+
+    resize_flag = true;
+    if (mode < 10) {
+      document.getElementById('Good').innerHTML = '👍+' + String(mode);
+    } else {
+      if ((mode % 2) == 0) {
+        document.getElementById('Good').innerHTML = '😋';
+      } else {
+        document.getElementById('Good').innerHTML = '😑';
+        resize_flag = false;
+      }
+    }
+    image.src = image.src;
   }
 
 
   //---------------------------------------------------------------------------
-  // image.onloadイベント (resize)
+  // image.onloadイベント (送信画像設定)
   //---------------------------------------------------------------------------
   image.onload = function(){
     var pic        = document.getElementById('previewtImg').src;
     var pic_width  = document.getElementById('previewtImg').naturalWidth;
     var pic_height = document.getElementById('previewtImg').naturalHeight;
 //  console.log(pic);
+    send_pic = pic;
 
-    if (((mode % 2) == 0) && (pic_width > 1024)) {
-      var dst_width = 1024;
-      var dst_height = pic_height * (1024 / pic_width);
+    var dst_width;
+    var dst_height;
+
+    if (resize_flag && ((pic_width > 1024) || (pic_height > 1024))) {
+      if (pic_width < pic_height) {
+        dst_width  = pic_width * (1024 / pic_height);
+        dst_height = 1024;
+      } else {
+        dst_width  = 1024;
+        dst_height = pic_height * (1024 / pic_width);
+      }
       canvas.width  = dst_width;
       canvas.height = dst_height;
       ctx.drawImage(image, 0, 0, pic_width, pic_height, 0, 0, dst_width, dst_height);
       send_pic = canvas.toDataURL();
-      document.getElementById('previewtImg').src = send_pic;
-    } else {
-      send_pic = pic;
     }
 //  console.log(send_pic);
 
@@ -94,18 +113,14 @@
         // 返却jsonデータからparseしてデータ取り出し
         var response = JSON.parse(data.ResultSet);
 //      console.log(response);
+//      console.log(response.result_pic);
+//      console.log(response.result_result);
 
         $('#ResultImg').css( { 'width' : '300' });
         $('#exec').css( { 'cursor' : 'no-drop' });
-        document.getElementById('ResultImg').src = response.result_pic;
-        document.getElementById('link').href = response.result_pic;
-//      console.log(response.result_kind);
-        var ext = response.result_kind;
-        if (ext == 'png') {
-            document.getElementById('link').download = 'download.png';
-          } else {
-            document.getElementById('link').download = 'download.jpg';
-          }
+        document.getElementById('ResultImg').src  = response.result_pic;
+        document.getElementById('link').href      = response.result_pic;
+        document.getElementById('link').download  = 'download.png';
         document.getElementById('link').innerHTML = "Click to Download!!";
       }
     });
@@ -127,10 +142,10 @@
       document.getElementById('exec').disabled = true;
       const imageUrl = e.target.result;
       document.getElementById('previewtImg').src = imageUrl;
-      document.getElementById('ResultImg').src = '';
-      document.getElementById('link').href = '';
-      document.getElementById('link').download = '';
-      document.getElementById('link').innerHTML = '';
+      document.getElementById('ResultImg').src   = '';
+      document.getElementById('link').href       = '';
+      document.getElementById('link').download   = '';
+      document.getElementById('link').innerHTML  = '';
       image.src = imageUrl;
 //    console.log(imageUrl);
     }
