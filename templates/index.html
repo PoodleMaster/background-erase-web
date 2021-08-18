@@ -14,8 +14,11 @@
   </head>
 
   <p>
-    <img class="title" width=64 src="static/char.png">
-    <font class="title" size="6">【オブジェクト切り抜きツール】</font>
+    <div class="img_wrap">
+      <img class="title" width=64 src="static/char.png" onclick="mode_change();">
+    </div>
+    <font class="title" id="Good" size="4">👍</font>
+    <font class="title" size="6" onclick="author();">【オブジェクト切り抜きツール】</font>
   </p>
   <p>画像(jpg, png)を選択して、切り抜き処理を開始してください。</p>
   <div class="file_button">画像ファイルを選択
