@@ -16,6 +16,9 @@
   // 画像送信用
   var send_pic;
 
+  // 画像受信用
+  var response;
+
   // モード用
   var mode = 0;
   var resize_flag = true;
@@ -46,7 +49,7 @@
         resize_flag = false;
       }
     }
-    image.src = image.src;
+    image.onload();
   }
 
 
@@ -94,6 +97,18 @@
 //  wait_pic = 'static/wait.gif?' + (new Date()).getTime();
     wait_pic = 'static/wait.gif';
     document.getElementById('ResultImg').src = wait_pic;
+    document.getElementById('link').href       = '';
+    document.getElementById('link').download   = '';
+    document.getElementById('link').innerHTML  = '';
+  }
+
+  //---------------------------------------------------------------------------
+  // ResultImgLoadWait loadイベント
+  //---------------------------------------------------------------------------
+  function ResultImgLoadWait() {
+
+    document.getElementById('ResultImg').removeEventListener('load', ResultImgLoadWait);
+    document.getElementById('ResultImg').addEventListener('load', ResultImgLoadResult);
 
     // JQueryによるPOST処理
     // javascript→pythonへ画像データ転送
@@ -111,7 +126,7 @@
       success:function(data){
 
         // 返却jsonデータからparseしてデータ取り出し
-        var response = JSON.parse(data.ResultSet);
+        response = JSON.parse(data.ResultSet);
 //      console.log(response);
 //      console.log(response.result_pic);
 //      console.log(response.result_result);
@@ -119,11 +134,22 @@
         $('#ResultImg').css( { 'width' : '300' });
         $('#exec').css( { 'cursor' : 'no-drop' });
         document.getElementById('ResultImg').src  = response.result_pic;
-        document.getElementById('link').href      = response.result_pic;
-        document.getElementById('link').download  = 'download.png';
-        document.getElementById('link').innerHTML = "Click to Download!!";
       }
     });
+  }
+
+
+  //---------------------------------------------------------------------------
+  // ResultImgLoadResult loadイベント
+  //---------------------------------------------------------------------------
+  function ResultImgLoadResult() {
+
+    document.getElementById('ResultImg').removeEventListener('load', ResultImgLoadResult);
+    document.getElementById('ResultImg').addEventListener('load', ResultImgLoadWait);
+
+    document.getElementById('link').href      = response.result_pic;
+    document.getElementById('link').download  = 'download.png';
+    document.getElementById('link').innerHTML = "Click to Download!!";
   }
 
 
@@ -158,4 +184,5 @@
 
   // イベント登録
   file_select.addEventListener('change', handleFileSelect);
+  document.getElementById('ResultImg').addEventListener('load', ResultImgLoadWait);
   $('#exec').css( { 'cursor' : 'no-drop' });
