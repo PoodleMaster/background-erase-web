@@ -1,7 +1,21 @@
+/*
+############################################################
+# Copyright 2021 PoodleMaster. All rights reserved. 
+############################################################
+*/
+
+
+/* ---------------------
+   タイトル表示用
+   ---------------------*/
 .title {
   vertical-align: middle;
 }
 
+
+/* ---------------------
+   画像表示用
+   ---------------------*/
 #previewtImg {
   width: 300px;
   margin: 10px;
@@ -20,6 +34,10 @@
   border: solid 0px silver;
 }
 
+
+/* ---------------------
+   ボタン表示用
+   ---------------------*/
 .file_button {
   display: inline-block;
   position: relative;
@@ -49,3 +67,26 @@
   cursor: pointer;
 }
 
+
+/* ---------------------
+   画像回転
+   ---------------------*/
+.img_wrap{
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.img_wrap img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+.img_wrap img:hover{
+  transform: rotate(360deg);
+  transition-duration: 0.5s;
+}

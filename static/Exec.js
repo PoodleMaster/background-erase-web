@@ -3,11 +3,39 @@
 # Copyright 2021 PoodleMaster. All rights reserved. 
 ############################################################
 */
+
+  //---------------------------------------------------------------------------
+  // 変数
+  //---------------------------------------------------------------------------
+  // リサイズ用
   var canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');
   var image = new Image();
   image.crossOrigin = "Anonymous";
-  var send_pic
+
+  // 画像送信用
+  var send_pic;
+
+  // モード用 (奇数：画像そのまま、偶数：画像縮小)
+  var mode = 0;
+
+
+  //---------------------------------------------------------------------------
+  // タイトル 押下イベント
+  //---------------------------------------------------------------------------
+  function author() {
+    window.open('https://qiita.com/PoodleMaster');
+  }
+
+
+  //---------------------------------------------------------------------------
+  // モード変更 押下イベント
+  //---------------------------------------------------------------------------
+  function mode_change() {
+    mode++;
+    document.getElementById('Good').innerHTML = '👍+' + String(mode);
+  }
+
 
   //---------------------------------------------------------------------------
   // image.onloadイベント (resize)
@@ -17,33 +45,36 @@
     var pic_width  = document.getElementById('previewtImg').naturalWidth;
     var pic_height = document.getElementById('previewtImg').naturalHeight;
 //  console.log(pic);
-    if (pic_width > 1024) {
+
+    if (((mode % 2) == 0) && (pic_width > 1024)) {
       var dst_width = 1024;
-      var dst_height = pic_height * (1024 / pic_width)
+      var dst_height = pic_height * (1024 / pic_width);
       canvas.width  = dst_width;
       canvas.height = dst_height;
       ctx.drawImage(image, 0, 0, pic_width, pic_height, 0, 0, dst_width, dst_height);
       send_pic = canvas.toDataURL();
       document.getElementById('previewtImg').src = send_pic;
     } else {
-      send_pic = pic
+      send_pic = pic;
     }
 //  console.log(send_pic);
+
     document.getElementById('exec').disabled = false;
     $('#exec').css( { 'cursor' : 'pointer' });
   }
 
+
   //---------------------------------------------------------------------------
-  // Execボタン押下イベント (切り抜き処理開始)
+  // Execボタン 押下イベント (切り抜き処理開始)
   //---------------------------------------------------------------------------
   function exec_button() {
 
     document.getElementById('exec').disabled = true;
     $('#ResultImg').css( { 'width' : '200' });
     $('#exec').css( { 'cursor' : 'wait' });
-//  wait_pic = 'static/wait.gif?' + (new Date()).getTime()
-    wait_pic = 'static/wait.gif'
-    document.getElementById('ResultImg').src = wait_pic
+//  wait_pic = 'static/wait.gif?' + (new Date()).getTime();
+    wait_pic = 'static/wait.gif';
+    document.getElementById('ResultImg').src = wait_pic;
 
     // JQueryによるPOST処理
     // javascript→pythonへ画像データ転送
@@ -80,8 +111,9 @@
     });
   }
 
+
   //---------------------------------------------------------------------------
-  // ファイルが選択されたときの処理
+  // ファイル選択処理
   //---------------------------------------------------------------------------
   const file_select = document.getElementById('file_select');
 
