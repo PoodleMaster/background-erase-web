@@ -48,16 +48,11 @@ def output():
     tmpdata = tmpdata[2:-1]  # 「ｂ’～’」の中身だけをエンコード
 
     # 返却データ設定
-    ext = b64_data.split(';')[0].split('/')[1]
-    if ext == 'png':
-        data1 = "data:image/png;base64," + tmpdata
-    else:
-        data1 = "data:image/jpeg;base64," + tmpdata
-
-    data2 = ext
+    data1 = "data:image/png;base64," + tmpdata
+    data2 = "OK"
 
     return_data = { "result_pic": data1,
-                    "result_kind": data2,
+                    "result_result": data2,
                   }
 
 #   display(return_data, "return_data")
