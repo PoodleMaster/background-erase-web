@@ -92,10 +92,10 @@
   function exec_button() {
 
     document.getElementById('exec').disabled = true;
-    $('#ResultImg').css( { 'width' : '200' });
     $('#exec').css( { 'cursor' : 'wait' });
 //  wait_pic = 'static/wait.gif?' + (new Date()).getTime();
     wait_pic = 'static/wait.gif';
+    document.getElementById("ResultImg").className = "ResultImgWait";
     document.getElementById('ResultImg').src = wait_pic;
     document.getElementById('link').href       = '';
     document.getElementById('link').download   = '';
@@ -131,8 +131,8 @@
 //      console.log(response.result_pic);
 //      console.log(response.result_result);
 
-        $('#ResultImg').css( { 'width' : '300' });
         $('#exec').css( { 'cursor' : 'no-drop' });
+        document.getElementById("ResultImg").className = "ResultImg";
         document.getElementById('ResultImg').src  = response.result_pic;
       }
     });

@@ -22,10 +22,27 @@
   border: solid 0px silver;
 }
 
-#ResultImg {
+.ResultImg {
   width: 300px;
   margin: 10px;
   border: solid 0px silver;
+}
+
+.ResultImgWait {
+  width: 200px;
+  margin: 0px;
+  border: solid 0px silver;
+  animation: anim 40s infinite;
+  transform: translateX(0px);
+}
+
+@keyframes anim {
+  0% {
+  transform: translateX(0px);
+  }
+  100% {
+  transform: translateX(200px);
+  }
 }
 
 
