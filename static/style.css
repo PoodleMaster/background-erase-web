@@ -33,7 +33,6 @@
   margin: 0px;
   border: solid 0px silver;
   animation: anim 40s infinite;
-  transform: translateX(0px);
 }
 
 @keyframes anim {
