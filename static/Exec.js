@@ -8,6 +8,7 @@
   // 変数
   //---------------------------------------------------------------------------
   // リサイズ用
+  const FIX_SIZE = 512;
   var canvas = document.createElement('canvas');
   var ctx = canvas.getContext('2d');
   var image = new Image();
@@ -66,13 +67,13 @@
     var dst_width;
     var dst_height;
 
-    if (resize_flag && ((pic_width > 1024) || (pic_height > 1024))) {
+    if (resize_flag && ((pic_width > FIX_SIZE) || (pic_height > FIX_SIZE))) {
       if (pic_width < pic_height) {
-        dst_width  = pic_width * (1024 / pic_height);
-        dst_height = 1024;
+        dst_width  = pic_width * (FIX_SIZE / pic_height);
+        dst_height = FIX_SIZE;
       } else {
-        dst_width  = 1024;
-        dst_height = pic_height * (1024 / pic_width);
+        dst_width  = FIX_SIZE;
+        dst_height = pic_height * (FIX_SIZE / pic_width);
       }
       canvas.width  = dst_width;
       canvas.height = dst_height;
