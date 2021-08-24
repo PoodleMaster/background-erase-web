@@ -5,31 +5,33 @@
 -->
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>オブジェクト切り抜きツール</title>
-    <link rel="icon" href="static/favicon.ico"/>
-    <link rel="stylesheet" href="static/style.css">
-  </head>
 
-  <p>
-    <div class="img_wrap">
-      <img class="title" width=64 src="static/char.png" onclick="mode_change();">
-    </div>
-    <font class="title" id="Good" size="4">👍</font>
-    <font class="title" size="6" onclick="author();">【オブジェクト切り抜きツール】</font>
-  </p>
-  <p>画像(jpg, png)を選択して、切り抜き処理を開始してください。</p>
-  <div class="file_button">画像ファイルを選択
-    <input class="file_input" type="file" id="file_select" accept=".jpg,.png">
-  </div>
-  <div class="file_button">切り抜き処理開始
-    <input class="file_input" type="button" id="exec" value="処理" onclick="exec_button();" disabled>
-  </div>
-  <div><img id="previewtImg"></div>
-  <div><img id="ResultImg" class="ResultImg"></div>
-  <a id="link" target="_blank"></a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>オブジェクト切り抜きツール</title>
+  <link rel="icon" href="static/favicon.ico" />
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<p>
+<div class="img_wrap">
+  <img class="title" width="64" src="static/char.png" alt="" onclick="mode_change();">
+</div>
+<font class="title" id="Good" size="4">👍</font>
+<font class="title" size="6" onclick="author();">【オブジェクト切り抜きツール】</font>
+</p>
+<p>画像(jpg, png)を選択して、切り抜き処理を開始してください。</p>
+<div class="file_button">画像ファイルを選択
+  <input class="file_input" type="file" id="file_select" accept=".jpg,.png">
+</div>
+<div class="file_button">切り抜き処理開始
+  <input class="file_input" type="button" id="exec" value="処理" onclick="exec_button();" disabled>
+</div>
+<div><img id="previewtImg" alt=""></div>
+<div><img id="ResultImg" class="ResultImg" alt=""></div>
+<a id="link" target="_blank"></a>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
