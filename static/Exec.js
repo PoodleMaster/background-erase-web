@@ -58,7 +58,7 @@ image.onload = function () {
   var pic = document.getElementById("previewtImg").src;
   var pic_width = document.getElementById("previewtImg").naturalWidth;
   var pic_height = document.getElementById("previewtImg").naturalHeight;
-  //  console.log(pic);
+  // console.log(pic);
   send_pic = pic;
 
   var dst_width;
@@ -87,7 +87,7 @@ image.onload = function () {
     );
     send_pic = canvas.toDataURL();
   }
-  //  console.log(send_pic);
+  // console.log(send_pic);
 
   document.getElementById("exec").disabled = false;
   $("#exec").css({ cursor: "pointer" });
@@ -122,7 +122,7 @@ function ResultImgLoadWait() {
   // JQueryによるPOST処理
   // javascript→pythonへ画像データ転送
   var textData = JSON.stringify({ b64_pic: send_pic });
-  //  console.log(textData);
+  // console.log(textData);
 
   $.ajax({
     type: "POST",
@@ -135,9 +135,9 @@ function ResultImgLoadWait() {
     success: function (data) {
       // 返却jsonデータからparseしてデータ取り出し
       response = JSON.parse(data.ResultSet);
-      //      console.log(response);
-      //      console.log(response.result_pic);
-      //      console.log(response.result_result);
+      // console.log(response);
+      // console.log(response.result_pic);
+      // console.log(response.result_result);
 
       $("#exec").css({ cursor: "no-drop" });
       document.getElementById("ResultImg").className = "ResultImg";
