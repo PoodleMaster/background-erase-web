@@ -1,5 +1,5 @@
 # base
-FROM continuumio/miniconda3
+FROM continuumio/miniconda3:4.10.3
 # FROM rembg_aot
 
 # init
