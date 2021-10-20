@@ -1,9 +1,9 @@
 # base
-FROM continuumio/miniconda3:4.10.3
+FROM continuumio/miniconda3:4.9.2
 # FROM rembg_aot
 
 # init
-RUN apt-get update
+RUN apt-get update --allow-releaseinfo-change
 RUN apt-get install -y build-essential
 RUN conda update pip
 
@@ -38,4 +38,5 @@ CMD ["gunicorn", "--bind=0.0.0.0:5000", "server:app"]
 
 # Heroku deploy
 # CMD gunicorn --bind 0.0.0.0:$PORT server:app
+
 
