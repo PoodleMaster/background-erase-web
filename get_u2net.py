@@ -46,7 +46,8 @@ else:
     subprocess.call(cmd.split())
 
 # download_gdrive.py
-cmd = 'python tool/download_gdrive.py 1ao1ovG1Qtx4b7EoskHXmi2E9rp5CHLcZ u2net/u2net.pth'
+# cmd = 'python tool/download_gdrive.py 1ao1ovG1Qtx4b7EoskHXmi2E9rp5CHLcZ u2net/u2net.pth'
+cmd = 'python tool/download_gdrive.py 1IG3HdpcRiDoWNookbncQjeaPN28t90yW u2net/u2net.pth'
 subprocess.call(cmd.split())
 
 print('complete.')
