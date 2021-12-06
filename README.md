@@ -1,6 +1,8 @@
 # background-erase-web
 - Recognizes the object in the photo and erases the background.
-- Only png can be selected.
+- Only jpeg, png can be selected.
+
+<img width="400" src="https://user-images.githubusercontent.com/69660581/144771237-df357325-41bc-46de-aec0-751471a5ea2d.png">
 
 # ■Requirements
 - python 3.8+
